@@ -21,35 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-//    @weakify(self);
-//    RACSignal *signal = [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-//        return nil;
-//    }]bind:^RACSignalBindBlock _Nonnull{
-////        return RACSignalbing;
-//    }];
-    
-//    RACChannelTerminal *channelA = self.inputTextField.rac_newTextChannel;
-    
-//    RACChannelTerminal *channelEntity = RACChannelTo(self,entity);
-//    RACChannelTerminal *channelB = RACChannelTo(self,label.text);
-//
-//    [[channelEntity map:^id _Nullable(AIOneEntity *value) {
-//        NSLog(@"====%@",value);
-//        return [NSString stringWithFormat:@"%ld",value.number];
-//    }]subscribe:channelB];
-    
-//    [RACObserve(self, entity.number) subscribeNext:^(NSNumber *x) {
-//        NSLog(@"====%ld",x.integerValue);
-//    }];
-//    [[channelA map:^id _Nullable(NSString *value) {
-//        return [NSString stringWithFormat:@"-----%@",value];
-//    }] subscribe:channelB];
-//
-//    [[channelB map:^id _Nullable(id  _Nullable value) {
-//        return [NSString stringWithFormat:@"=====%@",value];
-//    }]subscribe:channelA];
 }
+
 - (IBAction)onClickLessButton:(id)sender {
     __weak typeof(self)weakSelf = self;
     [[self.presentOne lessFunction] subscribeNext:^(NSNumber* x) {

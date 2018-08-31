@@ -25,6 +25,7 @@
 
 - (void)bindChanel;
 
+//添加属性
 @property (nonatomic,strong)RACChannelTerminal *textChanel;
 @property (nonatomic,strong)RACChannelTerminal *labelChanel;
 
