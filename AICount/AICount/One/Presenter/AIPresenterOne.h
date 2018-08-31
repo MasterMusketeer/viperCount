@@ -15,8 +15,10 @@
 
 @interface AIPresenterOne : NSObject <AIPresenterProtocol>
 
+
 @property (nonatomic,strong)id<AIInteractorOneProtocol> interctor;
-@property (nonatomic,weak)UIView<AIViewOneProtocol> *view;
+@property (nonatomic,weak)id<AIViewOneProtocol> view;
 @property (nonatomic,strong)id<AIOneRouteProtocol> route;
+
 @end
 

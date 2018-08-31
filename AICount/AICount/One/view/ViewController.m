@@ -8,14 +8,12 @@
 
 #import "ViewController.h"
 #import "AIPresenterOne.h"
-#import "AIOneEntity.h"
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 @property (weak, nonatomic) IBOutlet UIButton *less;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
-@property (nonatomic ,strong)AIOneEntity *entity;
 @end
 
 @implementation ViewController
@@ -24,7 +22,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.entity = [[AIOneEntity alloc]init];
 //    @weakify(self);
 //    RACSignal *signal = [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
 //        return nil;
@@ -68,7 +65,6 @@
     }];
 }
 - (IBAction)onClickAddEntity:(id)sender {
-    self.entity.number++;
 }
 
 - (RACCommand *)setLabelNumber {
@@ -85,7 +81,7 @@
 }
 
 - (RACChannelTerminal *)getTextChannel {
-    return self.inputTextField.rac_newTextChannel;
+    return RACChannelTo(self,inputTextField.text);
 }
 
 @end

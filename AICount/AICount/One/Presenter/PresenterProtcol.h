@@ -22,6 +22,16 @@
  数据到------->UI
  */
 - (RACCommand*)setNumberFunction;
+
+- (void)bindChanel;
+
+@property (nonatomic,strong)RACChannelTerminal *textChanel;
+@property (nonatomic,strong)RACChannelTerminal *labelChanel;
+
+- (void)setTextChanel:(RACChannelTerminal *)textChanel;
+- (RACChannelTerminal *)getTextChanel;
+-(void)setLabelChanel:(RACChannelTerminal *)labelChanel;
+-(RACChannelTerminal *)getLabelChanel;
 @end
 
 #endif /* PresenterProtcol_h */

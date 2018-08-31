@@ -8,8 +8,9 @@
 
 #import "AIInteractorOne.h"
 #import "AIPresenterOne.h"
+#import "AIOneEntity.h"
 @interface AIInteractorOne ()
-@property (nonatomic, assign)   NSInteger  count;
+@property (nonatomic, strong)   AIOneEntity  *entity;
 @end
 
 @implementation AIInteractorOne
@@ -18,23 +19,24 @@
 {
     self = [super init];
     if (self) {
-        _count = 0;
+        self.entity = [[AIOneEntity alloc]init];
         __weak typeof(self)weakSelf = self;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [[weakSelf.presentOne setNumberFunction] execute:@"123"];
+            weakSelf.entity.textString = @"2121";
+//            [[weakSelf.presentOne setNumberFunction] execute:@"123"];
         });
     }
     return self;
 }
-- (RACChannelTerminal*)getCountChannel {
-    return RACChannelTo(self, count);
+- (RACChannelTerminal*)getTextStringChannel {
+    return RACChannelTo(self, self.entity.textString);
 }
 
 - (RACSignal*)interacotrAddFunction {
     __weak typeof(self)weakSelf = self;
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        weakSelf.count++;
-        [subscriber sendNext:@(weakSelf.count)];
+        weakSelf.entity.number++;
+        [subscriber sendNext:@(weakSelf.entity.number)];
         return [RACDisposable disposableWithBlock:^{
             
         }];
@@ -43,8 +45,8 @@
 - (RACSignal*)interacotrLessFunction {
     __weak typeof(self)weakSelf = self;
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        weakSelf.count--;
-        [subscriber sendNext:@(weakSelf.count)];
+        weakSelf.entity.number--;
+        [subscriber sendNext:@(weakSelf.entity.number)];
         return [RACDisposable disposableWithBlock:^{
             
         }];
@@ -54,7 +56,7 @@
 - (RACSignal*)interacotrGetNumberFunction {
     __weak typeof(self)weakSelf = self;
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        [subscriber sendNext:@(weakSelf.count)];
+        [subscriber sendNext:@(weakSelf.entity.number)];
         return [RACDisposable disposableWithBlock:^{
             
         }];

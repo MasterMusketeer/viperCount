@@ -9,7 +9,8 @@
 #import "AIPresenterOne.h"
 
 @implementation AIPresenterOne
-
+@synthesize labelChanel = _labelChanel;
+@synthesize textChanel  = _textChanel;
 
 - (RACSignal*)addFunction {
     __weak typeof(self)weakSelf = self;
@@ -28,5 +29,25 @@
 
 - (RACCommand*)setNumberFunction {
     return [self.view setLabelNumber];
+}
+
+- (void)bindChanel {
+    [self.textChanel subscribe:self.labelChanel];
+    [self.labelChanel subscribe:self.textChanel];
+}
+
+-(void)setLabelChanel:(RACChannelTerminal *)labelChanel {
+    _labelChanel = labelChanel;
+}
+-(RACChannelTerminal *)getLabelChanel {
+    return _labelChanel;
+}
+
+-(void)setTextChanel:(RACChannelTerminal *)textChanel {
+    _textChanel = textChanel;
+}
+
+-(RACChannelTerminal *)getTextChanel {
+    return _textChanel;
 }
 @end
