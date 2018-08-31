@@ -8,13 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "PresenterProtcol.h"
-//#import "AIInteractorOneProtocol.h"
 #import "AIInteractorProtocol.h"
 #import "AIViewOneProtocol.h"
 #import "AIOneRouteProtocol.h"
 
 @interface AIPresenterOne : NSObject <AIPresenterProtocol>
-
 
 @property (nonatomic,strong)id<AIInteractorOneProtocol> interctor;
 @property (nonatomic,weak)id<AIViewOneProtocol> view;
