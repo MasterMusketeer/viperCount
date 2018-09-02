@@ -11,6 +11,6 @@
 #import "AIInteractorProtocol.h"
 
 @interface AIInteractorOne : NSObject <AIInteractorOneProtocol>
-@property (nonatomic,strong)id<AIPresenterProtocol> presentOne;
+@property (nonatomic,weak)id<AIPresenterProtocol> presentOne;
 @end
 
