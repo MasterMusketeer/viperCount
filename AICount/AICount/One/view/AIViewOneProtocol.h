@@ -14,7 +14,6 @@
 
 @protocol AIViewOneProtocol <NSObject>
 
-- (RACCommand*)setLabelNumber;
-- (RACChannelTerminal*)getTextChannel;
+- (RACChannelTerminal*)getViewLabelChannel;
 @end
 #endif /* AIViewOneProtocol_h */

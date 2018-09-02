@@ -27,10 +27,6 @@
     return [self.interctor interacotrLessFunction];
 }
 
-- (RACCommand*)setNumberFunction {
-    return [self.view setLabelNumber];
-}
-
 - (void)bindChanel {
     [[self.textChanel map:^id _Nullable(id  _Nullable value) {
         NSLog(@"####%@",value);

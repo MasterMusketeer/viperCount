@@ -10,8 +10,6 @@
 
 @interface AIOneEntity : NSObject
 
-/** text的文字*/
-@property(nonatomic,copy)NSString *textString;
 @property(nonatomic,assign)NSNumber *number;
 @end
 

@@ -37,8 +37,8 @@
     view.presentOne        = presenterOne;
     interactor.presentOne  = presenterOne;
     
-    presenterOne.labelChanel      = [interactor getTextStringChannel];
-    presenterOne.textChanel       = [view getTextChannel];
+    presenterOne.labelChanel      = [interactor getInteractorNumberChannel];
+    presenterOne.textChanel       = [view getViewLabelChannel];
     [presenterOne bindChanel];
     
     self.window.rootViewController = view;

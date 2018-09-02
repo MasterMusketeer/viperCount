@@ -13,5 +13,5 @@
 
 - (RACSignal*)interacotrAddFunction;
 - (RACSignal*)interacotrLessFunction;
-- (RACChannelTerminal*)getTextStringChannel;
+- (RACChannelTerminal*)getInteractorNumberChannel;
 @end

@@ -10,17 +10,11 @@
 #define PresenterProtcol_h
 
 @class RACSignal;
-@class RACCommand;
 @class RACChannelTerminal;
 @protocol AIPresenterProtocol <NSObject>
 
 - (RACSignal*)addFunction;
 - (RACSignal*)lessFunction;
-
-/**
- 数据到------->UI
- */
-- (RACCommand*)setNumberFunction;
 
 - (void)bindChanel;
 

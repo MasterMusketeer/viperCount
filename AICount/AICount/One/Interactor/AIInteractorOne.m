@@ -21,15 +21,15 @@
     if (self) {
         self.entity = [[AIOneEntity alloc]init];
         __weak typeof(self)weakSelf = self;
-        //测试双向数据绑定
+        //测试双向数据绑定 ,这里可以相当于服务器请求等到数据
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            weakSelf.entity.textString = @"2121";
+            weakSelf.entity.number = @(0);
         });
         
     }
     return self;
 }
-- (RACChannelTerminal*)getTextStringChannel {
+- (RACChannelTerminal*)getInteractorNumberChannel {
     return RACChannelTo(self.entity, number);
 }
 
@@ -54,23 +54,4 @@
     }];
 }
 
-- (RACSignal*)interacotrGetNumberFunction {
-    __weak typeof(self)weakSelf = self;
-    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        [subscriber sendNext:weakSelf.entity.number];
-        return [RACDisposable disposableWithBlock:^{
-            
-        }];
-    }];
-}
-
-- (RACSignal*)interacotrSetNumberFunction:(NSInteger)number {
-    
-    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        [subscriber sendNext:@(number)];
-        return [RACDisposable disposableWithBlock:^{
-            
-        }];
-    }];
-}
 @end
