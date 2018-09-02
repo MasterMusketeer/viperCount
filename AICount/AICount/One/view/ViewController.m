@@ -24,17 +24,13 @@
 }
 
 - (IBAction)onClickLessButton:(id)sender {
-    __weak typeof(self)weakSelf = self;
     [[self.presentOne lessFunction] subscribeNext:^(NSNumber* x) {
         NSLog(@"%@",x);
-        weakSelf.label.text  = [NSString stringWithFormat:@"%ld",[x integerValue] ];
     }];
 }
 - (IBAction)onClickAddButton:(id)sender {
-    __weak typeof(self)weakSelf = self;
     [[self.presentOne addFunction] subscribeNext:^(NSNumber* x) {
         NSLog(@"%@",x);
-        weakSelf.label.text  = [NSString stringWithFormat:@"%ld",[x integerValue] ];
     }];
 }
 - (IBAction)onClickAddEntity:(id)sender {
@@ -54,7 +50,7 @@
 }
 
 - (RACChannelTerminal *)getTextChannel {
-    return RACChannelTo(self,inputTextField.text);
+    return RACChannelTo(self,label.text);
 }
 
 @end

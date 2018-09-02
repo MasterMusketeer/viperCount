@@ -32,8 +32,14 @@
 }
 
 - (void)bindChanel {
-    [self.textChanel subscribe:self.labelChanel];
-    [self.labelChanel subscribe:self.textChanel];
+    [[self.textChanel map:^id _Nullable(id  _Nullable value) {
+        NSLog(@"####%@",value);
+        return value;
+    }]subscribe:self.labelChanel];
+    
+    [[self.labelChanel map:^id _Nullable(NSNumber *value) {
+        return [NSString stringWithFormat:@"%ld",value.integerValue];
+    }]subscribe:self.textChanel];
 }
 
 -(void)setLabelChanel:(RACChannelTerminal *)labelChanel {
