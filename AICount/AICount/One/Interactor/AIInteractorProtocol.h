@@ -6,8 +6,6 @@
 //  Copyright © 2018年 master. All rights reserved.
 //
 
-#ifndef AIInteractor_hs
-#define AIInteractor_h
 
 #import <ReactiveObjC.h>
 @class RACSignal;
@@ -15,8 +13,5 @@
 
 - (RACSignal*)interacotrAddFunction;
 - (RACSignal*)interacotrLessFunction;
-- (RACSignal*)interacotrGetNumberFunction;
-- (RACSignal*)interacotrSetNumberFunction;
-- (RACChannelTerminal*)getCountChannel;
+- (RACChannelTerminal*)getInteractorNumberChannel;
 @end
-#endif /* AIInteractor_h */

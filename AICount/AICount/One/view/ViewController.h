@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "AIViewOneProtocol.h"
-@class AIPresenterOne;
+#import "AIPresenterProtocol.h"
 
 @interface ViewController : UIViewController <AIViewOneProtocol>
 
-@property (nonatomic,strong)AIPresenterOne *presentOne;
+@property (nonatomic,strong)id<AIPresenterProtocol> presentOne;
 @end
 

@@ -8,8 +8,9 @@
 
 #import "AIInteractorOne.h"
 #import "AIPresenterOne.h"
+#import "AIOneEntity.h"
 @interface AIInteractorOne ()
-@property (nonatomic, assign)   NSInteger  count;
+@property (nonatomic, strong)   AIOneEntity  *entity;
 @end
 
 @implementation AIInteractorOne
@@ -18,23 +19,25 @@
 {
     self = [super init];
     if (self) {
-        _count = 0;
+        self.entity = [[AIOneEntity alloc]init];
         __weak typeof(self)weakSelf = self;
+        //测试双向数据绑定 ,这里可以相当于服务器请求等到数据
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [[weakSelf.presentOne setNumberFunction] execute:@"123"];
+            weakSelf.entity.number = @(0);
         });
+        
     }
     return self;
 }
-- (RACChannelTerminal*)getCountChannel {
-    return RACChannelTo(self, count);
+- (RACChannelTerminal*)getInteractorNumberChannel {
+    return RACChannelTo(self.entity, number);
 }
 
 - (RACSignal*)interacotrAddFunction {
     __weak typeof(self)weakSelf = self;
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        weakSelf.count++;
-        [subscriber sendNext:@(weakSelf.count)];
+        weakSelf.entity.number = @(weakSelf.entity.number.integerValue + 1);
+        [subscriber sendNext:weakSelf.entity.number];
         return [RACDisposable disposableWithBlock:^{
             
         }];
@@ -43,31 +46,12 @@
 - (RACSignal*)interacotrLessFunction {
     __weak typeof(self)weakSelf = self;
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        weakSelf.count--;
-        [subscriber sendNext:@(weakSelf.count)];
+        weakSelf.entity.number = @(weakSelf.entity.number.integerValue - 1);
+        [subscriber sendNext:weakSelf.entity.number];
         return [RACDisposable disposableWithBlock:^{
             
         }];
     }];
 }
 
-- (RACSignal*)interacotrGetNumberFunction {
-    __weak typeof(self)weakSelf = self;
-    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        [subscriber sendNext:@(weakSelf.count)];
-        return [RACDisposable disposableWithBlock:^{
-            
-        }];
-    }];
-}
-
-- (RACSignal*)interacotrSetNumberFunction:(NSInteger)number {
-    
-    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        [subscriber sendNext:@(number)];
-        return [RACDisposable disposableWithBlock:^{
-            
-        }];
-    }];
-}
 @end

@@ -56,7 +56,7 @@
 		4541B3962131396700929481 /* AIInteractorOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AIInteractorOne.m; sourceTree = "<group>"; };
 		455B12E62132D8130011970A /* AIOneEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIOneEntity.h; sourceTree = "<group>"; };
 		455B12E72132D8130011970A /* AIOneEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AIOneEntity.m; sourceTree = "<group>"; };
-		457D795A21314CA4005E960E /* PresenterProtcol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresenterProtcol.h; sourceTree = "<group>"; };
+		457D795A21314CA4005E960E /* AIPresenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIPresenterProtocol.h; sourceTree = "<group>"; };
 		457D795B21314DD5005E960E /* AIInteractorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIInteractorProtocol.h; sourceTree = "<group>"; };
 		457D795E213156FB005E960E /* AIViewOneProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIViewOneProtocol.h; sourceTree = "<group>"; };
 		457D795F2131649E005E960E /* AIOneRoute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIOneRoute.h; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 			children = (
 				4541B3922131394B00929481 /* AIPresenterOne.h */,
 				4541B3932131394B00929481 /* AIPresenterOne.m */,
-				457D795A21314CA4005E960E /* PresenterProtcol.h */,
+				457D795A21314CA4005E960E /* AIPresenterProtocol.h */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";

@@ -10,8 +10,9 @@
 #import "AITwoViewController.h"
 @implementation AIOneRoute
 
-- (void)presentTwoViewControllerfrom:(UIView<AIViewOneProtocol>*)viewcontroller {
-    AITwoViewController *twoVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"AITwoViewController"];
-    [((UIViewController*)viewcontroller) presentViewController:twoVC animated:YES completion:nil];
+- (void)presentTwoViewControllerfrom:(id<AIViewOneProtocol>)viewcontroller {
+    AITwoViewController *twoVC   = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"AITwoViewController"];
+    UIViewController *controller = (UIViewController*)viewcontroller;
+    [controller presentViewController:twoVC animated:YES completion:nil];
 }
 @end

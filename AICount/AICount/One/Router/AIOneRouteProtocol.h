@@ -13,7 +13,7 @@
 #import <UIKit/UIKit.h>
 @protocol AIOneRouteProtocol <NSObject>
 
-- (void)presentTwoViewControllerfrom:(UIView<AIViewOneProtocol>*)viewcontroller;
+- (void)presentTwoViewControllerfrom:(id<AIViewOneProtocol>)viewcontroller;
 
 @end
 #endif /* AIOneRouteProtocol_h */

@@ -24,9 +24,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     ViewController *view           = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]instantiateViewControllerWithIdentifier:@"viewcontroller1"];
+    [view viewDidLoad];
     AIInteractorOne *interactor    = [[AIInteractorOne alloc]init];
     AIPresenterOne *presenterOne   = [[AIPresenterOne alloc]init];
     AIOneRoute *oneRoute           = [[AIOneRoute alloc]init];
+    
+    
     presenterOne.route     = oneRoute;
     presenterOne.interctor = interactor;
     presenterOne.view      = view;
@@ -34,14 +37,9 @@
     view.presentOne        = presenterOne;
     interactor.presentOne  = presenterOne;
     
-//    RACChannelTerminal *channelA = [interactor getCountChannel];
-//    RACChannelTerminal *channelB = [view getTextChannel];
-//
-//    [[channelA map:^id _Nullable(NSNumber *value) {
-//        return [NSString stringWithFormat:@"%ld",value.integerValue];
-//    }]subscribe:channelB];
-//
-//    [channelB subscribe:channelA];
+    presenterOne.labelChanel      = [interactor getInteractorNumberChannel];
+    presenterOne.textChanel       = [view getViewLabelChannel];
+    [presenterOne bindChanel];
     
     self.window.rootViewController = view;
     [self.window makeKeyAndVisible];
