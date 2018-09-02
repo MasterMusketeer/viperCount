@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AIPresenterProtocol.h"
 #import "AIInteractorProtocol.h"
-@class AIPresenterOne;
+
 @interface AIInteractorOne : NSObject <AIInteractorOneProtocol>
-@property (nonatomic,strong)AIPresenterOne *presentOne;
+@property (nonatomic,strong)id<AIPresenterProtocol> presentOne;
 @end
 

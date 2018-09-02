@@ -6,9 +6,6 @@
 //  Copyright © 2018年 master. All rights reserved.
 //
 
-#ifndef PresenterProtcol_h
-#define PresenterProtcol_h
-
 @class RACSignal;
 @class RACChannelTerminal;
 @protocol AIPresenterProtocol <NSObject>
@@ -27,5 +24,3 @@
 -(void)setLabelChanel:(RACChannelTerminal *)labelChanel;
 -(RACChannelTerminal *)getLabelChanel;
 @end
-
-#endif /* PresenterProtcol_h */

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PresenterProtcol.h"
+#import "AIPresenterProtocol.h"
 #import "AIInteractorProtocol.h"
 #import "AIViewOneProtocol.h"
 #import "AIOneRouteProtocol.h"
