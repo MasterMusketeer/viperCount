@@ -19,7 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    //MARK:ai logmaster
     self.window = [[UIWindow alloc]init];
     self.window.backgroundColor = [UIColor whiteColor];
     
